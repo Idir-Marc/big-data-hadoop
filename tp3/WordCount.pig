@@ -1,6 +1,6 @@
 text = LOAD '/user/hadoop/gutenberg' USING TextLoader() AS (line:chararray);
 
-REGISTER 'myudfs.jar';
+REGISTER './target/tp3.jar';
 
 lines = FOREACH text GENERATE LOWER(line) AS line;
 clean = FOREACH lines GENERATE REPLACE(line, '[^a-z]', ' ') AS line;
